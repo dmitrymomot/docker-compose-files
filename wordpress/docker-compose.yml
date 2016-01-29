@@ -1,0 +1,16 @@
+wordpress:
+    image: wordpress
+    links:
+        - db:mysql
+    environment:
+        VIRTUAL_HOST: wordpress.local
+    volumes:
+        - ./wordpress:/var/www/html
+        - ./logs:/var/log
+db:
+    image: mariadb
+    environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: wordpress
+        MYSQL_USER: wordpress
+        MYSQL_PASSWORD: wordpress
